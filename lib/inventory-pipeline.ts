@@ -25,29 +25,11 @@ export class InventoryPipeline extends Stack {
 
 
         // Build
-        const inventoryProject = new codebuild.Project(this, 'InventoryProject', {
-            buildSpec: codebuild.BuildSpec.fromObject({
-                version: '0.2',
-                phases: {
-                    install: {
-                        commands: 'npm install'
-                    },
-                    build: {
-                        commands: [
-                            'npm run build',
-                            'npm run cdk synth LambdaStack -- -o .',
-                        ],
-                    },
-                    artifacts: {
-                        files: 'LambdaStack.template.yaml',
-                    },
-                }
-            })
-        });
+        const pipelineProject = new codebuild.PipelineProject(this, 'InventoryProject');
         const cdkBuildOutput = new codepipeline.Artifact();
         const cdkBuildAction = new codepipeline_actions.CodeBuildAction({
             actionName: 'CDK_BUILD',
-            project: inventoryProject,
+            project: pipelineProject,
             input: cdkSourceOutput,
             outputs: [cdkBuildOutput],
         })

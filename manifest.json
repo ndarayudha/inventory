@@ -1,0 +1,160 @@
+{
+  "version": "18.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "InventoryPipeline.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "InventoryPipeline.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "InventoryPipeline": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "InventoryPipeline.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/995486c37d7bc12471301bd3cea5c547e1e6e37069605e06b4a9f2cce2edaf49.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "InventoryPipeline.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "InventoryPipeline.assets"
+      ],
+      "metadata": {
+        "/InventoryPipeline/InventoryProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryProjectRole6EE42CD3"
+          }
+        ],
+        "/InventoryPipeline/InventoryProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryProjectRoleDefaultPolicy49B72F7D"
+          }
+        ],
+        "/InventoryPipeline/InventoryProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryProject24D7198B"
+          }
+        ],
+        "/InventoryPipeline/InventoryProject/BatchServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryProjectBatchServiceRole73B8587B"
+          }
+        ],
+        "/InventoryPipeline/InventoryProject/BatchServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryProjectBatchServiceRoleDefaultPolicyBAC04DC8"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineArtifactsBucketEncryptionKey93A48A79"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineArtifactsBucketEncryptionKeyAlias2562DDE9"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineArtifactsBucket31665806"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineArtifactsBucketPolicy186B61AB"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineRole5AD128E0"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineRoleDefaultPolicyCB0AC929"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipeline07FF61C6"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/Source/Github_Source/WebhookResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineSourceGithubSourceWebhookResourceD6F6C161"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/Build/CodeBuild/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineBuildCodeBuildCodePipelineActionRole99965280"
+          }
+        ],
+        "/InventoryPipeline/InventoryPipeline/Build/CodeBuild/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InventoryPipelineBuildCodeBuildCodePipelineActionRoleDefaultPolicy4F5B890C"
+          }
+        ],
+        "/InventoryPipeline/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/InventoryPipeline/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/InventoryPipeline/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/InventoryPipeline/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "InventoryPipeline"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": "18.0.0",
+  "files": {
+    "995486c37d7bc12471301bd3cea5c547e1e6e37069605e06b4a9f2cce2edaf49": {
+      "source": {
+        "path": "InventoryPipeline.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "995486c37d7bc12471301bd3cea5c547e1e6e37069605e06b4a9f2cce2edaf49.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
